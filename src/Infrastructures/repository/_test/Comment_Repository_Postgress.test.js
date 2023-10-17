@@ -69,7 +69,7 @@ describe('CommentRepositoryPostgres', () => {
         await UsersTableTestHelper.addUser({ id: 'user-123456799', username: 'zaenurr01' });
         await ThreadsTableTestHelper.addThread({ id: 'thread-h_123456', body: 'sebuah thread', owner: 'user-123456799' });
         await CommentsTableTestHelper.addingComment({
-          id: 'comment-_pby2-123456', content: 'sebuah komentar', thread: 'thread-h_123456', owner: 'user-123456799',
+          id: 'comment-_pby2-123456', content: 'sebuah komentar', thread_id: 'thread-h_123456', owner: 'user-123456799',
         });
 
         // Action & Assert
@@ -86,7 +86,7 @@ describe('CommentRepositoryPostgres', () => {
         await UsersTableTestHelper.addUser({ id: 'user-123459999', username: 'zaenurr03' });
         await ThreadsTableTestHelper.addThread({ id: 'thread-h_1234567', body: 'sebuah thread', owner: 'user-123456999' });
         await CommentsTableTestHelper.addingComment({
-          id: 'comment-_pby2-1234567', content: 'sebuah komentar', thread: 'thread-h_1234567', owner: 'user-123456999',
+          id: 'comment-_pby2-1234567', content: 'sebuah komentar', thread_id: 'thread-h_1234567', owner: 'user-123456999',
         });
         const comment = 'comment-_pby2-1234567';
         const owner = 'user-123459999';
@@ -102,7 +102,7 @@ describe('CommentRepositoryPostgres', () => {
         await UsersTableTestHelper.addUser({ id: 'user-123499999', username: 'zaenurr04' });
         await ThreadsTableTestHelper.addThread({ id: 'thread-h_12345678', body: 'sebuah thread', owner: 'user-123499999' });
         await CommentsTableTestHelper.addingComment({
-          id: 'comment-_pby2-123456789', content: 'sebuah komentar', thread: 'thread-h_12345678', owner: 'user-123499999',
+          id: 'comment-_pby2-123456789', content: 'sebuah komentar', thread_id: 'thread-h_12345678', owner: 'user-123499999',
         });
 
         // Action & Assert
@@ -118,7 +118,7 @@ describe('CommentRepositoryPostgres', () => {
         await UsersTableTestHelper.addUser({ id: 'user-123999999', username: 'zaenurr11' });
         await ThreadsTableTestHelper.addThread({ id: 'thread-h_123456789', body: 'sebuah thread', owner: 'user-123999999' });
         await CommentsTableTestHelper.addingComment({
-          id: 'comment-_pby2-1234567810', content: 'sebuah komentar', thread: 'thread-h_123456789', owner: 'user-123999999',
+          id: 'comment-_pby2-1234567810', content: 'sebuah komentar', thread_id: 'thread-h_123456789', owner: 'user-123999999',
         });
 
         // Action
@@ -143,7 +143,7 @@ describe('CommentRepositoryPostgres', () => {
         const commentPayload = {
           id: 'comment-_pby2-1234567811',
           content: 'sebuah komentar',
-          thread: threadPayload.id,
+          thread_id: threadPayload.id,
           owner: userPayload.id,
         };
 
