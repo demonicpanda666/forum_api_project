@@ -32,7 +32,7 @@ describe('CommentRepositoryPostgres', () => {
         await ThreadsTableTestHelper.addThread({ id: 'thread-h_123', body: 'sebuah thread', owner: 'user-1234567' });
 
         const newComment = new AddComment({
-          content: 'sebuah komentar',
+          content: 'Lorem ipsum...',
           thread: 'thread-h_123',
           owner: 'user-1234567',
         });
@@ -45,7 +45,7 @@ describe('CommentRepositoryPostgres', () => {
         const comment = await CommentsTableTestHelper.findCommentsById('comment-_pby2_123456789abcdef');
         expect(addedComment).toStrictEqual(new AddedComment({
           id: 'comment-_pby2_123456789abcdef',
-          content: 'sebuah komentar',
+          content: 'Lorem ipsum...',
           owner: 'user-1234567',
         }));
         expect(comment).toHaveLength(1);
@@ -69,7 +69,7 @@ describe('CommentRepositoryPostgres', () => {
         await UsersTableTestHelper.addUser({ id: 'user-123456799', username: 'zaenurr01' });
         await ThreadsTableTestHelper.addThread({ id: 'thread-h_123456', body: 'sebuah thread', owner: 'user-123456799' });
         await CommentsTableTestHelper.addingComment({
-          id: 'comment-_pby2-123456', content: 'sebuah komentar', thread_id: 'thread-h_123456', owner: 'user-123456799',
+          id: 'comment-_pby2-123456', content: 'Lorem ipsum...', thread_id: 'thread-h_123456', owner: 'user-123456799',
         });
 
         // Action & Assert
@@ -86,7 +86,7 @@ describe('CommentRepositoryPostgres', () => {
         await UsersTableTestHelper.addUser({ id: 'user-123459999', username: 'zaenurr03' });
         await ThreadsTableTestHelper.addThread({ id: 'thread-h_1234567', body: 'sebuah thread', owner: 'user-123456999' });
         await CommentsTableTestHelper.addingComment({
-          id: 'comment-_pby2-1234567', content: 'sebuah komentar', thread_id: 'thread-h_1234567', owner: 'user-123456999',
+          id: 'comment-_pby2-1234567', content: 'Lorem ipsum...', thread_id: 'thread-h_1234567', owner: 'user-123456999',
         });
         const comment = 'comment-_pby2-1234567';
         const owner = 'user-123459999';
@@ -102,7 +102,7 @@ describe('CommentRepositoryPostgres', () => {
         await UsersTableTestHelper.addUser({ id: 'user-123499999', username: 'zaenurr04' });
         await ThreadsTableTestHelper.addThread({ id: 'thread-h_12345678', body: 'sebuah thread', owner: 'user-123499999' });
         await CommentsTableTestHelper.addingComment({
-          id: 'comment-_pby2-123456789', content: 'sebuah komentar', thread_id: 'thread-h_12345678', owner: 'user-123499999',
+          id: 'comment-_pby2-123456789', content: 'Lorem ipsum...', thread_id: 'thread-h_12345678', owner: 'user-123499999',
         });
 
         // Action & Assert
@@ -118,14 +118,14 @@ describe('CommentRepositoryPostgres', () => {
         await UsersTableTestHelper.addUser({ id: 'user-123999999', username: 'zaenurr11' });
         await ThreadsTableTestHelper.addThread({ id: 'thread-h_123456789', body: 'sebuah thread', owner: 'user-123999999' });
         await CommentsTableTestHelper.addingComment({
-          id: 'comment-_pby2-1234567810', content: 'sebuah komentar', thread_id: 'thread-h_123456789', owner: 'user-123999999',
+          id: 'comment-_pby2-1234567810', content: 'Lorem ipsum...', thread_id: 'thread-h_123456789', owner: 'user-123999999',
         });
 
         // Action
         await commentRepositoryPostgres.deleteComment('comment-_pby2-1234567810');
 
         // Assert
-        const comment = await CommentsTableTestHelper.checkIsDeletedCommentsById('comment-_pby2-1234567810');
+        const comment = await CommentsTableTestHelper.checkIsDeletedCommentbyId('comment-_pby2-1234567810');
         expect(comment).toEqual(true);
       });
     });
@@ -142,7 +142,7 @@ describe('CommentRepositoryPostgres', () => {
         };
         const commentPayload = {
           id: 'comment-_pby2-1234567811',
-          content: 'sebuah komentar',
+          content: 'Lorem ipsum...',
           thread_id: threadPayload.id,
           owner: userPayload.id,
         };
@@ -156,7 +156,7 @@ describe('CommentRepositoryPostgres', () => {
         expect(Array.isArray(comments)).toBe(true);
         expect(comments[0].id).toEqual(commentPayload.id);
         expect(comments[0].username).toEqual(userPayload.username);
-        expect(comments[0].content).toEqual('sebuah komentar');
+        expect(comments[0].content).toEqual('Lorem ipsum...');
         expect(comments[0].date).toBeDefined();
       });
     });
