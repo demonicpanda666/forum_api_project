@@ -33,7 +33,7 @@ describe('CommentRepositoryPostgres', () => {
 
         const newComment = new AddComment({
           content: 'Lorem ipsum...',
-          thread: 'thread-h_123',
+          thread_id: 'thread-h_123',
           owner: 'user-1234567',
         });
 

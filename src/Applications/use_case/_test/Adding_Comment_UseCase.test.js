@@ -7,7 +7,7 @@ const ThreadRepository = require('../../../Domains/threads/Thread_Repository');
 describe('Adding Comment Use Case', () => {
   it('should orchestrating the add comment action correctly', async () => {
     const useCasePayload = {
-      thread: 'thread-h_123',
+      thread_id: 'thread-h_123',
       content: 'sebuah komentar',
       owner: 'user-123',
     };
@@ -32,10 +32,10 @@ describe('Adding Comment Use Case', () => {
 
     const addedComment = await getCommentUseCase.execute(useCasePayload);
 
-    expect(mockThreadRepository.checkAvailabilityThread).toBeCalledWith(useCasePayload.thread);
+    expect(mockThreadRepository.checkAvailabilityThread).toBeCalledWith(useCasePayload.thread_id);
     expect(addedComment).toStrictEqual(expectedAddedComment);
     expect(mockCommentRepository.addComment).toBeCalledWith(new AddComment({
-      thread: useCasePayload.thread,
+      thread_id: useCasePayload.thread_id,
       content: useCasePayload.content,
       owner: useCasePayload.owner,
     }));

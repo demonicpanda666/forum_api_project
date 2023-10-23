@@ -3,7 +3,7 @@ const AddingComment = require('../Adding_Comment');
 describe('an Adding Comment entities', () => {
   it('should throw error when payload did not contain needed property', () => {
     const payload = {
-      thread: 'thread-h_123',
+      thread_id: 'thread-h_123',
       owner: 'user-123',
     };
 
@@ -12,7 +12,7 @@ describe('an Adding Comment entities', () => {
 
   it('should throw error when payload did not meet data type specification', () => {
     const payload = {
-      thread: 'thread-h_123',
+      thread_id: 'thread-h_123',
       owner: 'user-123',
       content: true,
     };
@@ -22,7 +22,7 @@ describe('an Adding Comment entities', () => {
 
   it('should create new comment object correctly', () => {
     const payload = {
-      thread: 'thread-h_123',
+      thread_id: 'thread-h_123',
       owner: 'user-123',
       content: 'ini komentar',
     };
