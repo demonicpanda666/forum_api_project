@@ -15,7 +15,7 @@ describe('Delete Comment Use Case', () => {
   it('should throw error if payload not string', async () => {
     // Arrange
     const useCasepayload = {
-      thread: 1,
+      thread_id: 1,
       comment: 1,
       owner: 1,
     };
@@ -30,7 +30,7 @@ describe('Delete Comment Use Case', () => {
   it('should orchestrating the delete comment action correctly', async () => {
     // Arrange
     const useCasepayload = {
-      thread: 'thread-h_123',
+      thread_id: 'thread-h_123',
       comment: 'comment-_pby2_123',
       owner: 'user_123',
     };
@@ -56,7 +56,7 @@ describe('Delete Comment Use Case', () => {
 
     // Assert
     expect(mockThreadRepository.checkAvailabilityThread)
-      .toHaveBeenCalledWith(useCasepayload.thread);
+      .toHaveBeenCalledWith(useCasepayload.thread_id);
     expect(mockCommentRepository.checkAvailabilityComment)
       .toHaveBeenCalledWith(useCasepayload.comment);
     expect(mockCommentRepository.verifyCommentOwner)

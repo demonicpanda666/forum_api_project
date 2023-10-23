@@ -118,7 +118,7 @@ describe('CommentRepositoryPostgres', () => {
         await UsersTableTestHelper.addUser({ id: 'user-123999999', username: 'zaenurr11' });
         await ThreadsTableTestHelper.addThread({ id: 'thread-h_123456789', body: 'sebuah thread', owner: 'user-123999999' });
         await CommentsTableTestHelper.addingComment({
-          id: 'comment-_pby2-1234567810', content: 'Lorem ipsum...', thread_id: 'thread-h_123456789', owner: 'user-123999999',
+          content: 'Lorem ipsum...', thread_id: 'thread-h_123456789', owner: 'user-123999999',
         });
 
         // Action

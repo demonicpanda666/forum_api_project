@@ -14,6 +14,7 @@ class CommentRepositoryPostgres extends CommentRepository {
     const { content, thread_id, owner } = newComment;
     const id = `comment-_pby2_${this._idGenerator()}`;
     const date = new Date().toISOString();
+    const is_delete = false;
     
 
     const query = {
@@ -54,17 +55,17 @@ class CommentRepositoryPostgres extends CommentRepository {
 
   async deleteComment(comment) {
     const query = {
-      text: 'UPDATE comments SET is_delete=TRUE WHERE id = $1',
+      text: 'UPDATE comments SET is_delete = true WHERE id = $1',
       values: [comment],
     };
 
     await this._pool.query(query);
   }
 
-  async getCommentsThread(thread) {
+  async getCommentsThread(thread_id) {
     const query = {
       text: 'SELECT comments.id, users.username, comments.date, comments.content, comments.is_delete FROM comments LEFT JOIN users ON users.id = comments.owner WHERE thread_id = $1 ORDER BY comments.date ASC',
-      values: [thread],
+      values: [thread_id],
     };
 
     const { rows } = await this._pool.query(query);
