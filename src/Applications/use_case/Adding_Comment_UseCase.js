@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-underscore-dangle */
 const AddComment = require('../../Domains/comments/entities/Adding_Comment');
 
 class AddCommentUseCase {

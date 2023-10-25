@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const CreateThread = require('../../Domains/threads/entities/Create_Thread');
 
 class CreateThreadUseCase {

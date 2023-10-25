@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const DetailThread = require('../../Domains/threads/entities/Detail_Thread');
 const DetailComment = require('../../Domains/comments/entities/Detail_Comment');
 
