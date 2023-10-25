@@ -38,11 +38,11 @@ describe('CommentRepositoryPostgres', () => {
         });
 
         const fakeIdGenerator = () => '123456789abcdef';
-        const commentRepositoryPostgres = new CommentRepositoryPostgres(pool, { fakeIdGenerator });
+        const commentRepositoryPostgres = new CommentRepositoryPostgres(pool, fakeIdGenerator);
 
         const addedComment = await commentRepositoryPostgres.addingComment(newComment);
 
-        const comment = await CommentsTableTestHelper.findCommentsById('comment-_pby2_123456789abcdef');
+        const comment = await CommentsTableTestHelper.findCommentbyId('comment-_pby2_123456789abcdef');
         expect(addedComment).toStrictEqual(new AddedComment({
           id: 'comment-_pby2_123456789abcdef',
           content: 'Lorem ipsum...',
