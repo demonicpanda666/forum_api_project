@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-underscore-dangle */
 const AuthorizationError = require('../../Commons/exceptions/AuthorizationError');
 const NotFoundError = require('../../Commons/exceptions/NotFoundError');
 const CommentRepository = require('../../Domains/comments/Comment_Repository');
@@ -15,7 +17,6 @@ class CommentRepositoryPostgres extends CommentRepository {
     const id = `comment-_pby2_${this._idGenerator()}`;
     const date = new Date().toISOString();
     const is_delete = false;
-    
 
     const query = {
       text: 'INSERT INTO comments VALUES($1, $2, $3, $4, $5 ,$6) RETURNING id, content, owner',
@@ -24,7 +25,7 @@ class CommentRepositoryPostgres extends CommentRepository {
 
     const result = await this._pool.query(query);
 
-    return new AddedComment(result.rows[0]);
+    return new AddedComment({ ...result.rows[0] });
   }
 
   async checkAvailabilityComment(comment) {

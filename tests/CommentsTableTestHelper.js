@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* istanbul ignore file */
 const pool = require('../src/Infrastructures/database/postgres/pool');
 
@@ -31,7 +32,11 @@ const CommentsTableTestHelper = {
     };
 
     const result = await pool.query(query);
-    console.log(result)
+
+    if (result.rows.length === 0) {
+      return true;
+    }
+    return false;
   },
 
   async cleanTable() {

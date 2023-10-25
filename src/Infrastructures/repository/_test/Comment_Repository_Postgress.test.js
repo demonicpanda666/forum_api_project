@@ -38,7 +38,7 @@ describe('CommentRepositoryPostgres', () => {
         });
 
         const fakeIdGenerator = () => '123456789abcdef';
-        const commentRepositoryPostgres = new CommentRepositoryPostgres(pool, fakeIdGenerator);
+        const commentRepositoryPostgres = new CommentRepositoryPostgres(pool, { fakeIdGenerator });
 
         const addedComment = await commentRepositoryPostgres.addingComment(newComment);
 
@@ -126,6 +126,8 @@ describe('CommentRepositoryPostgres', () => {
 
         // Assert
         const comment = await CommentsTableTestHelper.checkIsDeletedCommentbyId('comment-_pby2-1234567810');
+        // if rows is empty, means it deleted
+
         expect(comment).toEqual(true);
       });
     });

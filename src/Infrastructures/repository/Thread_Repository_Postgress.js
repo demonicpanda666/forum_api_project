@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const NotFoundError = require('../../Commons/exceptions/NotFoundError');
 const AddedThread = require('../../Domains/threads/entities/Created_Thread');
 const ThreadRepository = require('../../Domains/threads/Thread_Repository');
