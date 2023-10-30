@@ -66,6 +66,7 @@ const createServer = async (container) => {
           message: translatedError.message,
         });
         newResponse.code(translatedError.statusCode);
+
         return newResponse;
       }
 
