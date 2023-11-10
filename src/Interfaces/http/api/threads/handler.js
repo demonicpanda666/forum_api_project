@@ -19,7 +19,6 @@ class ThreadsHandler {
       owner,
     };
     const addedThread = await createThreadUseCase.execute(useCasePayload);
-    console.log(addedThread, 'masuk');
     const response = h.response({
       status: 'success',
       data: {
