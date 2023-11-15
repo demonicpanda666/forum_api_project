@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const UserLogin = require('../../Domains/users/entities/UserLogin');
 const NewAuthentication = require('../../Domains/authentications/entities/NewAuth');
 

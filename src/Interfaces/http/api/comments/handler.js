@@ -34,12 +34,12 @@ class CommentHandler {
     const { id: owner } = request.auth.credentials;
     const thread_id = request.params.threadId;
     const comment = request.params.commentId;
-    const useCasePayload = {
+    const deletePayload = {
       thread_id,
       comment,
       owner,
     };
-    await deleteCommentUseCase.execute(useCasePayload);
+    await deleteCommentUseCase.execute(deletePayload);
 
     return h.response({
       status: 'success',

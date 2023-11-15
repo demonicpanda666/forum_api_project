@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable class-methods-use-this */
 class NewAuth {
   constructor(payload) {
     this._verifyPayload(payload);
