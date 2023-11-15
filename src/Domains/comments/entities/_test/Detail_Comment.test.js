@@ -24,14 +24,14 @@ describe('a Detail Comment entities', () => {
           username: 'johndoe',
           date: '2021-08-08T07:22:33.555Z',
           content: 'sebuah comment',
-          is_deleted: 0,
+          is_delete: 0,
         },
         {
           id: 'comment-_pby2_yksuCoxM2s4MMrZJO-qVD',
           username: 'dicoding',
           date: '2021-08-08T07:26:21.338Z',
           content: 'komentar yang lain tapi udah dihapus',
-          is_deleted: 1,
+          is_delete: 1,
         },
       ],
     };

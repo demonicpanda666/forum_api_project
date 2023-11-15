@@ -22,14 +22,14 @@ describe('Detail Thread Use Case', () => {
         username: 'dicoding',
         date: '2021-08-08 14.00',
         content: 'sebuah comment',
-        is_deleted: 0,
+        is_delete: 0,
       },
       {
         id: 'comment-_pby2_tmXV6bcvcdev8xk',
         username: 'dicoding',
         date: '2021-08-08 14.00',
         content: 'sebuah comment',
-        is_deleted: 1,
+        is_delete: 1,
       },
     ];
 
