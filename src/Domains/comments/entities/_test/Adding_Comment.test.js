@@ -1,10 +1,10 @@
+/* eslint-disable camelcase */
 const AddingComment = require('../Adding_Comment');
 
 describe('an Adding Comment entities', () => {
   it('should throw error when payload did not contain needed property', () => {
     const payload = {
-      thread_id: 'thread-h_123',
-      owner: 'user-123',
+      content: 'tes aja cuy',
     };
 
     expect(() => new AddingComment(payload)).toThrowError('ADDING_COMMENT.NOT_CONTAIN_NEEDED_PROPERTY');
@@ -27,10 +27,10 @@ describe('an Adding Comment entities', () => {
       content: 'ini komentar',
     };
 
-    const { content, thread, owner } = new AddingComment(payload);
+    const { content, thread_id, owner } = new AddingComment(payload);
 
     expect(content).toEqual(payload.content);
-    expect(thread).toEqual(payload.thread);
+    expect(thread_id).toEqual(payload.thread_id);
     expect(owner).toEqual(payload.owner);
   });
 });

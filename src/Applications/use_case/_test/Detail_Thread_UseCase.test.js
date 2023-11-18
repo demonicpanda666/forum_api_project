@@ -49,6 +49,8 @@ describe('Detail Thread Use Case', () => {
 
     const detailThread = await detailThreadUseCase.execute(useCasePayload);
 
+    expect(mockThreadRepository.checkAvailabilityThread)
+      .toHaveBeenCalledWith(useCasePayload.thread);
     expect(mockThreadRepository.getDetailThread)
       .toHaveBeenCalledWith(useCasePayload.thread);
     expect(mockCommentRepository.getCommentsThread)
